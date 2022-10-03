@@ -4,8 +4,17 @@ int Arabigo::romToDec(char rom[])
 {
     int resulatdo = 0, valor{};
 
-	for (int i = 0; i <strlen(rom); i++)
+	for (int i = 0; i < strlen(rom); i++)
 	{
+		if (rom[i] == 'I' && rom[i + 1] == 'V' && strlen(rom) == 2) {
+			resulatdo = 4;
+			break;
+		}
+		else if(rom[i]=='V' && rom[i+1]=='I' && strlen(rom)==2) {
+			resulatdo = 6;
+			break;
+		}
+
 		switch (rom[i]) {
 		case 'I':
 			valor = 1;
@@ -33,6 +42,5 @@ int Arabigo::romToDec(char rom[])
 		}
 		resulatdo += valor;
 	}
-
     return resulatdo;
 }
